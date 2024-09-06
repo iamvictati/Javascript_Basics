@@ -3,7 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Simple DOM example</title>
+
+    <style>
+        .highlight {
+          color: white;
+          background-color: black;
+          padding: 10px;
+          width: 250px;
+          text-align: center;
+        }
+    </style>
+
   </head>
   <body>
       <section>
@@ -30,7 +42,26 @@
         sect.removeChild(linkPara); 
         //linkPara.remove(); 
         //linkPara.parentNode.removeChild(linkPara); ***OLD BROWSER****
+
+        /* 
+        Javascript CSS Method: 
+        The first method takes less setup and is good for simple uses
+
+        para.style.color = "white";
+        para.style.backgroundColor = "black";
+        para.style.padding = "10px";
+        para.style.width = "250px";
+        para.style.textAlign = "center";
+        */
+
+        /*
+        No mix CSS Method: 
+        the second method is more purist (no mixing CSS and JavaScript, no inline styles, which are seen as a bad practice). As you start building larger and more involved apps, you will probably start using the second method more, but it is really up to you.
+        */
+        para.setAttribute("class", "highlight"); 
         
+        
+
 
     </script>
   </body>
