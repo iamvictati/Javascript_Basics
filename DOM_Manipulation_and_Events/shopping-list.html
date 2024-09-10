@@ -36,21 +36,27 @@
         const addBtn = document.querySelector("button"); 
 
         function addItem() { 
-            const inputItem = document.getElementById("item"); 
-            inputItem = ""; 
+            //use element.value to extract value of variable 
+            const inputItem = input.value; 
+            input.value = ""; 
 
-            const item = document.createElement("li"); 
-            const span = document.createElement("span"); 
+            const listItem = document.createElement("li"); 
+            const listText = document.createElement("span"); 
             const delBtn = document.createElement("button"); 
-            item.appendChild(span);
-            item.appendChild(delBtn); 
-            span.textContent = inputItem; 
-            delBtn.textContent = "Delete"; 
-            ul.appendChild(item);  
-            delBtn.onClick = () => ul.removeChild(item); 
-        }
 
+            listItem.appendChild(listText);
+            listText.textContent = inputItem; 
+            listItem.appendChild(delBtn); 
+            delBtn.textContent = "Delete"; 
+            list.appendChild(listItem);  
+
+            //onclick doesn't use camelCase!!!
+            delBtn.onclick = () => list.removeChild(listItem); 
+            
+            input.focus(); 
+        }
         addBtn.addEventListener("click", addItem); 
+
     </script>
   </body>
 </html>
