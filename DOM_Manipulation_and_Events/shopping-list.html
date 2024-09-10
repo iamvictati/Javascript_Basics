@@ -32,10 +32,25 @@
 
     <script>
         const list = document.querySelector("ul"); 
-        const item = document.querySelector("input");
-        const button = document.querySelector("button"); 
-        
+        const input = document.querySelector("input");
+        const addBtn = document.querySelector("button"); 
 
+        function addItem() { 
+            const inputItem = document.getElementById("item"); 
+            inputItem = ""; 
+
+            const item = document.createElement("li"); 
+            const span = document.createElement("span"); 
+            const delBtn = document.createElement("button"); 
+            item.appendChild(span);
+            item.appendChild(delBtn); 
+            span.textContent = inputItem; 
+            delBtn.textContent = "Delete"; 
+            ul.appendChild(item);  
+            delBtn.onClick = () => ul.removeChild(item); 
+        }
+
+        addBtn.addEventListener("click", addItem); 
     </script>
   </body>
 </html>
