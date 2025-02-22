@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+    
+    <script>
+        const person = {
+            name: {
+                first: 'Bob',
+                last: 'Smith',
+            },
+            age: 32,
+            bio: function () {
+                console.log(`${this.name.first} ${this.name.last} is ${this.age} years old.`);
+            },
+            introduceSelf: function () {
+                console.log(`Hi! I'm ${this.name.first}.`);
+            },
+        }; 
+
+        const myDataName = 'height';
+        const myDataValue = '1.75m';
+        person[myDataName] = myDataValue; 
+
+        person.age = 45;
+        person["name"]["last"] = "Cratchit";
+
+        person['eyes']= 'hazel';
+        person.farewell = function () {
+            console.log('Bye everybody!');
+        }; 
+
+        // OBJECT LITERALS EXAMPLE //
+
+        const cat = {
+          name : 'Bertie',
+          breed : 'Cymric',
+          color : 'white',
+          greeting: function() {
+            console.log(`Hello, said ${ this.name } the ${ this.breed }.`);
+          }
+        }
+
+        const cat2 = {
+          name : 'Elfie',
+          breed : 'Aphrodite Giant',
+          color : 'ginger',
+          greeting: function() {
+            console.log(`Hello, said ${ this.name } the ${ this.breed }.`);
+          }
+        }
+
+        cat.greeting();
+        cat2.greeting();
+
+        //CONSTRUCTORS: Use to avoid "DRY" (Don't repeat yourself) // 
+
+        function Cat(name, breed, color) {
+          this.name = name; 
+          this.breed = breed; 
+          this.color = color; 
+          this.greeting = function() {
+          console.log(`Hello, said ${this.name} the ${this.breed}. My fur is ${this.color}.`)
+            }
+          }
+
+        const cat3 = new Cat("Bertie", "Cymric", "white"); 
+        cat.greeting(); 
+
+        const cat4 = new Cat("FuFi", "Siamese", "beige and black"); 
+        cat2.greeting(); 
+    </script>
+  </body>
+
+</html>
